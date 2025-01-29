@@ -1,0 +1,79 @@
+import random
+#Enables me to access functions for generating random numbers and making random selections.
+
+
+#This is an example of product dictionary with descriptions of each and every car
+products = {
+
+    "mercedes" :{"price": 20000, "description": "Known for its emphasis on luxury, performance, technology, and safety. Mercedes-Benz offers a wide range of sedans, SUVs, coupes, and convertibles."},
+    "honda" :{"price":10000, "description" :" Reliable and fuel-efficient Japanese automaker offering a wide range of sedans, SUVs, minivans, and trucks."},
+    "nissan" :{"price":10000,"description" : "Japanese automaker offering a variety of sedans, SUVs, sports cars, and trucks known for a good balance between performance, features, and affordability."},
+    "suzuki" :{"price":25000, "description" :" Japanese automaker known for its small, fuel-efficient cars, SUVs, and motorcycles."},
+    "toyota" :{"price":30000,"description" : "Known for its reliability and fuel efficiency, Toyota offers a wide range of sedans, SUVs, trucks, and hybrids."},
+    "bmw" :{"price":40000,"description" : " Renowned for its sporty handling and performance. BMW offers a variety of sedans, SUVs, coupes, and convertibles."},
+    "audi" :{"price":50000, "description" :"Known for its blend of luxury, performance, and technological innovation. Audi offers a wide range of sedans, SUVs, coupes, and wagons."},
+    "hyundai" :{"price":60000,"description" : "Korean automaker offering a wide range of sedans, SUVs, and alternative fuel vehicles known for their features, warranty, and value."},
+    "kia" :{"price":70000, "description" :" Sister company to Hyundai offering a wide range of sedans, SUVs, and minivans known for their features, warranty, and value."},
+    "ford" :{"price":80000, "description" :"American automaker offering a wide range of sedans, SUVs, trucks, and performance vehicles."},
+    "volkswagen" :{"price":90000, "description" :" German automaker offering a wide range of sedans, SUVs, and hatchbacks known for their handling, practicality, and turbocharged engines."},
+    "volvo" :{"price":100000, "description" :"Swedish automaker known for its focus on safety, comfort, and wagon designs. Volvos offer a variety of sedans, SUVs, and wagons."},
+    "jaguar" :{"price":110000, "description" :" "},
+    "porsche" :{"price":120000, "description" :" German automaker known for its high-performance sports cars, SUVs, and sedans. Porsches are known for their precision handling, power, and luxurious interiors."},
+    "lamborghini" :{"price":130000,"description" : " "},
+    "ferrari" :{"price":140000, "description" :" Italian automaker known for its high-performance sports cars. Ferraris are known for their sleek designs, powerful engines, and focus on handling and racing heritage."},
+    "tesla" :{"price":150000, "description" :" American electric vehicle manufacturer known for its luxury electric cars, trucks, and SUVs. Teslas are known for their innovative technology, range, and performance."},
+    "bentley" :{"price":160000, "description" :" British automaker known for its ultra-luxurious cars, handcrafted interiors, and powerful engines. Bentleys are designed for comfort and prestige"},
+    "lexus":{"price":170000, "description" :" Luxury vehicle division of Toyota. Lexus offers sedans, SUVs, coupes, and hybrids known for their refinement, reliability, and technology."},
+    "subaru":{"price":180000, "description" :" "},
+    "mitsubishi":{"price":190000, "description" :" "},
+
+}
+
+#This are responses from the user and the cahtbot to
+For_USER = ["hello", "hi", "hey","niaje"]
+For_BOT = ["Hello!", "Hi there","poa"]
+
+BYE_USER = ["bye", "goodbye", "see you", "later", "exit"]
+BYE_BOT = ["Goodbye!", "See you later!", "Bye!", "Have a nice day!"]
+
+UNKNOWN_RESPONSES = ["I don't understand. Could you please rephrase?"]
+
+
+
+# This are the function to handle user input and produce responses
+def respond(input_text, user_name):
+    input_text = input_text.lower()
+
+    if input_text in For_USER:
+        return random.choice(For_BOT)
+    elif input_text in BYE_USER:
+        return random.choice(BYE_BOT)
+    elif "price of" in input_text:
+        product_name = input_text.split("price of ")[-1]
+        if product_name in products:
+            return f"The price of {product_name} is Ksh{products[product_name]['price']:.2f}. Description: {products[product_name]['description']}"
+        else:
+            return f"Sorry, I don't have the price for {product_name}."
+    elif "description of" in input_text:
+        product_name = input_text.split("description of ")[-1]
+        if product_name in products:
+            return f"The description of {product_name} is: {products[product_name]['description']}"
+        else:
+            return f"Sorry, I don't have a description for {product_name}."
+    elif "name" in input_text:
+        return f"Your name is {user_name}."
+    else:
+        return random.choice(UNKNOWN_RESPONSES)
+
+#  loop
+print("Welcome to the InfoBot Pricing Chatbot")
+print("Hey you 🫵🫵, can ask about prices of Cars (e.g., 'What is the price of Mercedes?'), ask also about descriptions of cars (e.g., 'What is the description of Mercedes?'), say 'bye' to exit")
+user_name = input("Bot: Whats Your name? ")
+
+while True:
+    user_input = input(f"{user_name}: ")
+    if user_input.lower() in BYE_USER:
+        print("Bot:", respond(user_input, user_name))
+        break
+    else:
+        print("Bot:", respond(user_input, user_name))
