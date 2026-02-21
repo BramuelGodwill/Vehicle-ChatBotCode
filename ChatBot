@@ -18,7 +18,7 @@ products = {
     "volkswagen" :{"price":90000, "description" :" German automaker offering a wide range of sedans, SUVs, and hatchbacks known for their handling, practicality, and turbocharged engines."},
     "volvo" :{"price":100000, "description" :"Swedish automaker known for its focus on safety, comfort, and wagon designs. Volvos offer a variety of sedans, SUVs, and wagons."},
     "jaguar" :{"price":110000, "description" :" "},
-    "porsche" :{"price":120000, "description" :" German automaker known for its high-performance sports cars, SUVs, and sedans. Porsches are known for their precision handling, power, and luxurious interiors."},
+    "porsche" :{"price":120000, "description" :" German automaker, known for its high-performance sports cars, SUVs, and sedans. Porsches are known for their precision handling, power, and luxurious interiors."},
     "lamborghini" :{"price":130000,"description" : " "},
     "ferrari" :{"price":140000, "description" :" Italian automaker known for its high-performance sports cars. Ferraris are known for their sleek designs, powerful engines, and focus on handling and racing heritage."},
     "tesla" :{"price":150000, "description" :" American electric vehicle manufacturer known for its luxury electric cars, trucks, and SUVs. Teslas are known for their innovative technology, range, and performance."},
@@ -67,7 +67,7 @@ def respond(input_text, user_name):
 
 #  loop
 print("Welcome to the InfoBot Pricing Chatbot")
-print("Hey you 🫵🫵, can ask about prices of Cars (e.g., 'What is the price of Mercedes?'), ask also about descriptions of cars (e.g., 'What is the description of Mercedes?'), say 'bye' to exit")
+print("Hey you 🫵🫵, can ask about prices of Vehicles (e.g., 'What is the price of Mercedes?'), ask also about descriptions of cars (e.g., 'What is the description of Mercedes?'), say 'bye' to exit")
 user_name = input("Bot: Whats Your name? ")
 
 while True:
@@ -76,4 +76,5 @@ while True:
         print("Bot:", respond(user_input, user_name))
         break
     else:
+
         print("Bot:", respond(user_input, user_name))
